@@ -43,6 +43,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: -13px;
 }
 
 .header-2 {
@@ -69,41 +70,87 @@ span {
 
 .main {
   position: relative;
-  width: 52%;
+  width: 100%;
+}
+
+#myRange {
+  accent-color: #10d5c2;
 }
 
 .slider {
-  -webkit-appearance: none;
   width: 100%;
-  height: 8px;
-  background: linear-gradient(90deg, #d6d6d6 60%, #d6d6d6 60%);
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  border-radius: 12px;
-  box-shadow: 0px 1px 10px 1px black;
 }
 
-.slider:hover {
-  opacity: 1;
+#money {
+  all: inherit;
+  margin: 0;
+  display: inline;
 }
 
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
+#page-view {
+  all: inherit;
+  margin: 0;
+  display: inline;
+}
+
+.check {
+  margin: 20px 0;
+  display: flex;
+}
+
+#switch {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 22px;
+  background-color: grey;
+  border-radius: 30px;
+  border: 2px solid gray;
+  left: 10px;
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
   width: 20px;
   height: 20px;
-  background: #10d5c2;
   border-radius: 50%;
-  cursor: pointer;
+  background-color: white;
+  top: -1px;
+  left: 1px;
+  transition: 0.4s;
 }
 
-.slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  background: #10d5c2;
-  border-radius: 50%;
-  cursor: pointer;
+.checkbox:checked + .toggle::after {
+  left: 35px;
+  top: 1px;
+}
+
+.checkbox:checked + .toggle {
+  background-color: #10d5c2;
+  border: none;
+}
+
+.discount {
+  background-color: #c5b175;
+  color: #ff8c66;
+  border: none;
+  width: 90px;
+  height: 24px;
+  font-size: 12px;
+}
+
+.p1 {
+  color: grey;
+  font-size: 13px;
+}
+
+.p2 {
+  margin: 0 20px;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,20 +1,32 @@
-let slider=document.querySelector('#myRange')
-let output=document.querySelector('#demo')
-let output1=document.querySelector('#demo1')
+let slider = document.querySelector('#myRange')
+let output = document.querySelector('#page-view')
+let output1 = document.querySelector('#money')
+let toggle = document.querySelector('.toggle')
+let range = document.querySelector('#switch')
+let values = ['10K', '50K', '100K', '500K', '1M']
+let values1 = [8, 12, 16, 24, 36]
 
-slider.oninput=function () {
-    let price = 8 + 4 * this.value;
-    let views = 50 + 25 * this.value;
-    output.innerHTML = `$ ${price}.00`;
-    output1.innerHTML = `${views}K`;
+slider.oninput = function () {
+    let price = this.value
+
+    output.innerHTML = values[price]
+
+    if (range.checked) {
+        output1.innerHTML = values1[price] * 0.75
+    } else{
+        output1.innerHTML = values1[price]
+    }
 }
 
-slider.addEventListener('mousemove',function () {
-          let x=slider.value;
-          let color='linear-gradient(90deg,rgb(0,255,255)'+ x +'%,rgb(214,214,214)'+ x + '%)';
-    slider.style.background=color
+range.addEventListener("change", evt => {
+    let beforeCalculation = parseInt(output1.innerHTML)
+
+    if (range.checked) {
+        output1.innerHTML = beforeCalculation * 0.75
+    } else {
+        output1.innerHTML = Math.round(beforeCalculation * 1.33333333334)
+    }
 })
 
 
-
-
+slider.oninput()
